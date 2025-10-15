@@ -31,4 +31,9 @@ class OrderCommentExtension extends EntityExtension
     {
         return OrderDefinition::class;
     }
+
+    public function getEntityName(): string
+    {
+        return OrderCommentDefinition::ENTITY_NAME;
+    }
 }
