@@ -13,7 +13,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class OrderCommentExtension extends EntityExtension
 {
-    #[\Override]
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(
@@ -26,7 +25,6 @@ class OrderCommentExtension extends EntityExtension
         );
     }
 
-    #[\Override]
     public function getDefinitionClass(): string
     {
         return OrderDefinition::class;
