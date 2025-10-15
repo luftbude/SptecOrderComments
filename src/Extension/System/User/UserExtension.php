@@ -12,7 +12,6 @@ use SptecOrderComments\Extension\Checkout\Order\OrderComment\OrderCommentDefinit
 
 class UserExtension extends EntityExtension
 {
-    #[\Override]
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(
@@ -24,9 +23,13 @@ class UserExtension extends EntityExtension
         );
     }
 
-    #[\Override]
     public function getDefinitionClass(): string
     {
         return UserDefinition::class;
+    }
+
+    public function getEntityName(): string
+    {
+        return UserDefinition::ENTITY_NAME;
     }
 }
