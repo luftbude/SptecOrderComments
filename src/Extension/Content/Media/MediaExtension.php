@@ -8,6 +8,7 @@ use Shopware\Core\Content\Media\MediaDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
+use SptecOrderComments\Extension\Checkout\Order\OrderComment\OrderCommentDefinition;
 use SptecOrderComments\Extension\Checkout\Order\OrderComment\OrderCommentMediaDefinition;
 
 class MediaExtension extends EntityExtension
