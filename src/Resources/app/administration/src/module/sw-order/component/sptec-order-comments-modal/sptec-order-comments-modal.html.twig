@@ -53,7 +53,7 @@
                                             />
                                             <sw-switch-field
                                                 v-else
-                                                v-model:value="orderComment.internal"
+                                                v-model="orderComment.internal"
                                                 :label="$tc('sptec-order-comments.modal.labelInternal')"
                                             />
                                         </dd>
@@ -64,7 +64,7 @@
                                             />
                                             <sw-single-select
                                                 v-else
-                                                v-model:value="orderComment.task"
+                                                v-model="orderComment.task"
                                                 :class="taskOptionClass"
                                                 :options="taskOptions"
                                                 disableSearchFunction
@@ -105,7 +105,7 @@
                                 />
                                 <sw-textarea-field
                                     v-else
-                                    v-model:value="orderComment.content"
+                                    v-model="orderComment.content"
                                     required
                                     :error="orderCommentContentError"
                                 />

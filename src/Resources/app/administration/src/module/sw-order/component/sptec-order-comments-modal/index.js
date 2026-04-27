@@ -59,11 +59,17 @@ Component.register('sptec-order-comments-modal', {
         },
 
         currentUser() {
-            return Shopware.State.get('session').currentUser;
+            if (Shopware.Store && Shopware.Store.get('session')) {
+                return Shopware.Store.get('session').currentUser;
+            }
+            if (Shopware.State && Shopware.State.get('session')) {
+                return Shopware.State.get('session').currentUser;
+            }
+            return null;
         },
 
         userName() {
-            if (this.orderComment.createdBy) {
+            if (this.orderComment && this.orderComment.createdBy) {
                 return `${this.orderComment.createdBy.firstName} ${this.orderComment.createdBy.lastName}`;
             }
 
@@ -89,6 +95,10 @@ Component.register('sptec-order-comments-modal', {
         },
 
         taskOptionClass() {
+            if (!this.orderComment) {
+                return 'gray';
+            }
+
             if (this.orderComment.task === true) {
                 return 'orange';
             }
@@ -117,7 +127,9 @@ Component.register('sptec-order-comments-modal', {
             }
 
             this.orderComment = this.orderCommentRepository.create(Shopware.Context.api);
-            this.orderComment.createdById = this.currentUser.id;
+            if (this.currentUser) {
+                this.orderComment.createdById = this.currentUser.id;
+            }
             this.orderComment.orderId = this.orderId;
             this.orderComment.internal = true;
             this.orderComment.task = null;
